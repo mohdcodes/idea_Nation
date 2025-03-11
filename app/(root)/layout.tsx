@@ -1,4 +1,4 @@
-import Footer from '../../components/Footer';
+// import Footer from '../../components/Footer';
 import Navbar from '../../components/Navbar';
 
 export default function Layout({
@@ -10,7 +10,7 @@ export default function Layout({
     <div className="flex flex-col h-screen">
       <Navbar />
       <main className="flex-1">{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
