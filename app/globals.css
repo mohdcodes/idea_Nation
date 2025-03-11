@@ -5,12 +5,17 @@
   --foreground: #171717;
   --font-work-sans: 'Work Sans', sans-serif;
 }
-
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-work-sans: var(--font-work-sans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +29,37 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-work-sans);
+}
+@layer utilities {
+  .heading {
+    @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white 
+    sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  }
+
+  .sub-heading {
+    @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
+  }
+  .pink_container {
+    @apply w-full bg-pink-600 min-h-[530px] flex justify-center items-center flex-col py-10 px-6;
+
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(251, 232, 67, 0.6),
+      rgba(251, 232, 67, 0.6) 0.2px,
+      transparent 1px,
+      transparent 30px
+    );
+
+    background-size: 100% 100%;
+    background-position: center;
+  }
+  .search-form {
+    @apply max-w-3xl w-150 min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
+  }
+  .search-input {
+    @apply flex-1 font-bold text-black placeholder:font-semibold placeholder:text-gray-500 w-full h-auto outline-none;
+  }
+  .search-btn {
+    @apply size-[50px] rounded-full bg-black flex justify-center items-center;
+  }
 }
